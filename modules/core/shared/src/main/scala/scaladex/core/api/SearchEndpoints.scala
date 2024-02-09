@@ -33,7 +33,7 @@ trait SearchEndpoints extends algebra.Endpoints with algebra.JsonEntitiesFromSch
         docs = Some("Filter the results matching the given platforms only (e.g., 'jvm', 'sjs1', 'native0.4', 'sbt1.0')")
       ) &
       qs[Option[Boolean]]("contributingSearch").xmap(_.getOrElse(false))(Option.when(_)(true))
-  ).xmap((AutocompletionParams.apply _).tupled)(Function.unlift(AutocompletionParams.unapply))
+  ).xmap(AutocompletionParams.apply.tupled)(Tuple.fromProductTyped)
 
   // Autocomplete endpoint definition
   val autocomplete: Endpoint[AutocompletionParams, Seq[AutocompletionResponse]] =

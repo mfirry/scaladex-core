@@ -63,7 +63,7 @@ class InMemoryDatabase extends SchedulerDatabase {
 
   override def getArtifacts(groupId: Artifact.GroupId, artifactId: Artifact.ArtifactId): Future[Seq[Artifact]] =
     Future.successful {
-      allArtifacts.values.flatten.filter { artifact: Artifact =>
+      allArtifacts.values.flatten.filter { (artifact: Artifact) =>
         artifact.groupId == groupId && artifact.artifactId == artifactId.value
       }.toSeq
     }

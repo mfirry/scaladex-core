@@ -19,14 +19,13 @@ lazy val scalacOptionsSettings = Def.settings(
     "-encoding",
     "UTF-8",
     "-feature",
-    "-unchecked",
-    "-Wunused"
+    "-unchecked"
   )
 )
 
 inThisBuild(
   List(
-    scalaVersion := "2.13.10",
+    scalaVersion := "3.3.1",
     // semanticdbEnabled := true,
     // semanticdbVersion := scalafixSemanticdb.revision,
     // scalafixScalaBinaryVersion := "2.13",
@@ -49,7 +48,7 @@ lazy val core = crossProject(JSPlatform, JVMPlatform)
   .settings(
     scalacOptionsSettings,
     libraryDependencies ++= Seq(
-      "com.lihaoyi" %%% "fastparse" % "2.3.3",
+      "com.lihaoyi" %%% "fastparse" % "3.0.2",
       "io.github.cquiroz" %%% "scala-java-time" % "2.5.0",
       "org.endpoints4s" %%% "algebra" % "1.11.1",
       "org.endpoints4s" %% "json-schema-playjson" % "1.11.1" % Test,

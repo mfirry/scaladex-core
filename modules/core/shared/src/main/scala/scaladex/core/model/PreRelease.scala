@@ -22,9 +22,9 @@ object PreRelease extends Parsers {
   implicit val preReleaseOrdering: Ordering[Option[PreRelease]] =
     Ordering.by {
       case None                       => (3, None, None)
-      case Some(ReleaseCandidate(rc)) => (2, Some(rc), None)
-      case Some(Milestone(m))         => (1, Some(m), None)
-      case Some(OtherPreRelease(pr))  => (0, None, Some(pr))
+      case Some(ReleaseCandidate(rc)) => (2, Option(rc), None)
+      case Some(Milestone(m))         => (1, Option(m), None)
+      case Some(OtherPreRelease(pr))  => (0, None, Option(pr))
     }
 
   import fastparse.NoWhitespace._
