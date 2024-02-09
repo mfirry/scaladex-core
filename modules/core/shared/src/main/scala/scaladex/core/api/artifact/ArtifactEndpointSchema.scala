@@ -17,7 +17,8 @@ trait ArtifactEndpointSchema extends PaginationSchema {
       .zip(field[String]("releaseDate"))
       .zip(field[String]("language"))
       .zip(field[String]("platform"))
-      .xmap[ArtifactMetadataResponse](ArtifactMetadataResponse.tupled)(
-        Function.unlift(ArtifactMetadataResponse.unapply)
+      .xmap[ArtifactMetadataResponse](ArtifactMetadataResponse.apply.tupled)(
+        Tuple.fromProductTyped
       )
+
 }
