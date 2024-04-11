@@ -25,7 +25,7 @@ lazy val scalacOptionsSettings = Def.settings(
 
 inThisBuild(
   List(
-    scalaVersion := "3.3.1",
+    scalaVersion := "3.4.1",
     // semanticdbEnabled := true,
     // semanticdbVersion := scalafixSemanticdb.revision,
     // scalafixScalaBinaryVersion := "2.13",
